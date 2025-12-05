@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manual Credit Reports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="header-logo">
+        <!-- You can add your logo here -->
+        <h1>Manual Credit Reports</h1>
+    </div>
+    
+    <!-- Initial Form Container -->
+    <div id="initialForm" class="form-container">
+        <h2>Enter Your Information</h2>
+        <div class="form-row">
+            <div class="form-group half">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+            </div>
+            <div class="form-group half">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group half">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="form-group half">
+                <label for="ssn">Social Security Number:</label>
+                <input type="text" id="ssn" maxlength="9" placeholder="XXXXXXXXX" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" maxlength="50" required>
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group half">
+                <label for="stateSelect">State:</label>
+                <select id="stateSelect" required>
+                    <option value="">Select a State</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+            </div>
+            <div class="form-group half">
+                <label for="zip">ZIP Code:</label>
+                <input type="text" id="zip" maxlength="5" required>
+            </div>
+        </div>
+        <button onclick="validateAndSubmit()" data-action="submit">Check Liabilities</button>
+    </div>
+
+    <!-- KBA Questions Container -->
+    <div id="kbaQuestionsContainer" class="kba-container" style="display: none;">
+        <h2>Identity Verification Questions</h2>
+        <p>Please answer the following questions to verify your identity:</p>
+        <!-- Questions will be dynamically inserted here -->
+    </div>
+
+    <!-- KBA Submit Button Container -->
+    <div id="kbaButtonContainer" style="display: none;">
+        <button id="kbaSubmitButton" onclick="submitKBAAnswers()" data-action="submit-kba">
+            Submit Answers
+        </button>
+    </div>
+
+    <!-- Error Container -->
+    <div id="errorContainer" class="error-container"></div>
+
+    <!-- Results Section -->
+    <div id="resultsSection" class="hidden container">
+        <h2>Client Liabilities Summary</h2>
+        <div id="liabilitiesList"></div>
+        <button onclick="window.location.reload()">Check Another Client</button>
+    </div>
+
+    <div class="footer">
+        <p>Powered by SpinWheel API | &copy; 2025 Optimal Debt Solutions Inc.</p>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

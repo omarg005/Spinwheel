@@ -8,6 +8,9 @@ yarn.lock
 .env.local
 .env.*.local
 
+# Configuration files with sensitive data
+config.js
+
 # IDE
 .idea/
 *.swp

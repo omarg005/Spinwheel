@@ -1,8 +1,9 @@
-// Environment Configuration
-const ENVIRONMENT = 'sandbox'; // Change to 'production' for production environment.'san
-// 
-// // API Configuration
-const SPINWHEEL_API_KEY = 'f2b9a097-6226-45c5-bca0-a1aad53cc104';
+// Environment Configuration and API Key are now loaded from config.js
+// Make sure config.js exists (copy from config.example.js and add your API key)
+if (typeof ENVIRONMENT === 'undefined' || typeof SPINWHEEL_API_KEY === 'undefined') {
+    console.error('ERROR: config.js is missing or incomplete. Please copy config.example.js to config.js and add your API key.');
+    alert('Configuration error: Please ensure config.js exists with your API key.');
+}
 
 // Base URLs based on environment
 const BASE_URLS = {
